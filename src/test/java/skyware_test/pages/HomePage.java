@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import skyware_test.utilities.ConfigurationSkyware;
+
 public class HomePage {
 	WebDriver driver;
 
@@ -17,6 +19,17 @@ public class HomePage {
 	@FindBy(xpath = "//a[@class='button login']")
 	public WebElement loginHome;
 
-	@FindBy(className = "button login")
-	public WebElement loginButton;
+	
+	public void automaticLogin() {
+		HomePage homepage = new HomePage(driver);
+		LoginPage loginpage = new LoginPage(driver);
+		homepage.loginHome.click();
+		loginpage.userName.sendKeys(ConfigurationSkyware.getProporty("email"));
+		loginpage.password.sendKeys(ConfigurationSkyware.getProporty("password"));
+		loginpage.loginButton.click();
+		
+		
+	}
+	
+	
 }
