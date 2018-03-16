@@ -32,6 +32,8 @@ public class SkywareTests extends TestBaseClass{
 		homepage.automaticLogin();
 		dashBoardPage.tabElements("Account");
 		dashBoardPage.AcountSubTab("Users");
+		browserUtils.isClickable(homepage.inviteNewUser, driver);
+		
 		
 	 
 		browserUtils.waitFor(5);
