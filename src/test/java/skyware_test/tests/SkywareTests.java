@@ -4,15 +4,15 @@ package skyware_test.tests;
 
 import org.testng.annotations.Test;
 
+import skyware_test.pages.HomePage;
 import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass{
 	
 
-	@Test
+	@Test(priority=1)
 	public void test() {
-		
-		
-		
+		HomePage homepage = new HomePage();
+		homepage.loginHome.click();
 	}
 }
