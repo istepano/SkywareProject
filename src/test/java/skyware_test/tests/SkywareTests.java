@@ -11,8 +11,9 @@ public class SkywareTests extends TestBaseClass{
 	
 
 	@Test(priority=1)
-	public void test() {
-		HomePage homepage = new HomePage();
+	public void test() throws InterruptedException {
+		HomePage homepage = new HomePage(driver);
+		Thread.sleep(6000);
 		homepage.loginHome.click();
 	}
 }
