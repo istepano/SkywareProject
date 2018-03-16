@@ -1,5 +1,6 @@
 package skyware_test.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -57,5 +58,13 @@ public class DashBoardPage {
 	
 	@FindBy(id="subtabLink")
 	public WebElement logoutMessage;
+	
+	
+	public void tabElements(String NameYourTab) {
+		driver.findElement(By.linkText(NameYourTab)).click();
+	}
+	public void AcountSubTab(String NameAccountSubTab) {
+		driver.findElement(By.linkText(NameAccountSubTab)).click();
+	}
 	
 }
