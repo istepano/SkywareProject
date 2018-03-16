@@ -36,7 +36,7 @@ public class HomePage {
 		
 	}
 	
-	public boolean isAt() {
+	public boolean isAt(){
 		return driver.getTitle().equals("Skyware Inventory | Free Web Based Inventory Tracking Software");
 	}
 	

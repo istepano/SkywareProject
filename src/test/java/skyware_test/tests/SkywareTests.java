@@ -17,36 +17,26 @@ import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass{
 	
-	AccountPage accountPage = new AccountPage(driver);
-	HomePage homepage = new HomePage(driver);
+	
 	
 
-	//@Test(priority=1) //Asma this is a smoke test 
-	public void test() throws InterruptedException {
-		homepage.loginHome.click();
-		homepage.automaticLogin();
-		accountPage.selectFirstTab("Account");
-		accountPage.selectSubTab("Categories");
-		
-		
-	}
-	@Test
-	public void TC_01() {//Not a smoke test
+
+	//@Test
+	public void TC_01(){//Ilya Stepanov
+		AccountPage accountPage = new AccountPage(driver);
+		HomePage homepage = new HomePage(driver);
 		BrowserUtils browserUtils = new BrowserUtils();
 		homepage.automaticLogin();
-<<<<<<< HEAD
-		dashBoardPage.tabElements("Account");
-		dashBoardPage.AcountSubTab("Users");
-		browserUtils.isClickable(homepage.inviteNewUser, driver);
-		
-=======
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Users");
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
-		
-	 
-		browserUtils.waitFor(5);
-		
-		
+		browserUtils.isClickable(homepage.inviteNewUser, driver);	
+		browserUtils.isClickable(accountPage.emailSortField, driver);
+		browserUtils.isClickable(accountPage.activeField, driver);
+		browserUtils.isClickable(accountPage.registerDateField, driver);
+		browserUtils.isClickable(accountPage.lastLoginDateField, driver);
 	}
+	
+	
+	
+	
 }

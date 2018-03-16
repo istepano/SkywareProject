@@ -14,6 +14,18 @@ public class AccountPage {
 		PageFactory.initElements(driver, this);
 	}
 	
+	@FindBy(id="lastLoginDate_sort")
+	public WebElement lastLoginDateField;
+	
+	@FindBy(id="registerDate_sort")
+	public WebElement registerDateField;
+	
+	@FindBy(id="active_sort")
+	public WebElement activeField;
+	
+	@FindBy(id="email_sort")
+	public WebElement emailSortField;
+	
 	@FindBy(id="thirdtabLink")
 	public WebElement categoryTab;
 	
