@@ -23,12 +23,17 @@ public class HomePage {
 	public void automaticLogin() {
 		HomePage homepage = new HomePage(driver);
 		LoginPage loginpage = new LoginPage(driver);
+		homepage.isAt();
 		homepage.loginHome.click();
 		loginpage.userName.sendKeys(ConfigurationSkyware.getProporty("email"));
 		loginpage.password.sendKeys(ConfigurationSkyware.getProporty("password"));
 		loginpage.loginButton.click();
 		
 		
+	}
+	
+	public boolean isAt() {
+		return driver.getTitle().equals("Skyware Inventory | Free Web Based Inventory Tracking Software");
 	}
 	
 	
