@@ -6,10 +6,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class DashBoardPage {
+public class AccountPage {
 
 	WebDriver driver;
-	public DashBoardPage(WebDriver driver) {
+	public AccountPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -60,10 +60,10 @@ public class DashBoardPage {
 	public WebElement logoutMessage;
 	
 	
-	public void tabElements(String NameYourTab) {
+	public void selectFirstTab(String NameYourTab) {
 		driver.findElement(By.linkText(NameYourTab)).click();
 	}
-	public void AcountSubTab(String NameAccountSubTab) {
+	public void selectSubTab(String NameAccountSubTab) {
 		driver.findElement(By.linkText(NameAccountSubTab)).click();
 	}
 	
