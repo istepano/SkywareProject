@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="14013" started-at="2018-03-16T02:05:19Z" finished-at="2018-03-16T02:05:33Z">
+  <suite name="Default suite" duration-ms="14054" started-at="2018-03-16T18:06:00Z" finished-at="2018-03-16T18:06:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14013" started-at="2018-03-16T02:05:19Z" finished-at="2018-03-16T02:05:33Z">
+    <test name="Default test" duration-ms="14054" started-at="2018-03-16T18:06:00Z" finished-at="2018-03-16T18:06:14Z">
       <class name="skyware_test.tests.SkywareTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:skyware_test.tests.SkywareTests@42d80b78]" name="setUp" is-config="true" duration-ms="6314" started-at="2018-03-16T02:05:19Z" finished-at="2018-03-16T02:05:25Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:skyware_test.tests.SkywareTests@42d80b78]" name="setUp" is-config="true" duration-ms="7072" started-at="2018-03-16T18:06:00Z" finished-at="2018-03-16T18:06:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="test()[pri:1, instance:skyware_test.tests.SkywareTests@42d80b78]" name="test" duration-ms="7400" started-at="2018-03-16T02:05:25Z" finished-at="2018-03-16T02:05:32Z">
+        <test-method status="PASS" signature="test()[pri:1, instance:skyware_test.tests.SkywareTests@42d80b78]" name="test" duration-ms="6843" started-at="2018-03-16T18:06:07Z" finished-at="2018-03-16T18:06:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:skyware_test.tests.SkywareTests@42d80b78]" name="tearDown" is-config="true" duration-ms="279" started-at="2018-03-16T02:05:32Z" finished-at="2018-03-16T02:05:33Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:skyware_test.tests.SkywareTests@42d80b78]" name="tearDown" is-config="true" duration-ms="103" started-at="2018-03-16T18:06:14Z" finished-at="2018-03-16T18:06:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
