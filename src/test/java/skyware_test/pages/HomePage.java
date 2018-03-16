@@ -29,7 +29,6 @@ public class HomePage {
 		loginpage.password.sendKeys(ConfigurationSkyware.getProporty("password"));
 		loginpage.loginButton.click();
 		
-		
 	}
 	
 	public boolean isAt() {
