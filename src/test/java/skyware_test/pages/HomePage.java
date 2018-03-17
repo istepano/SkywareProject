@@ -15,7 +15,6 @@ public class HomePage {
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
-
 	}
 
 	@FindBy(xpath = "//a[@class='button login']")
@@ -26,13 +25,12 @@ public class HomePage {
 
 	
 	public void automaticLogin() {
-		HomePage homepage = new HomePage(driver);
-		LoginPage loginpage = new LoginPage(driver);
-		homepage.isAt();
-		homepage.loginHome.click();
-		loginpage.userName.sendKeys(ConfigurationSkyware.getProporty("email"));
-		loginpage.password.sendKeys(ConfigurationSkyware.getProporty("password"));
-		loginpage.loginButton.click();
+		HomePage homePage = new HomePage(driver);
+		LoginPage loginPage = new LoginPage(driver);
+		homePage.loginHome.click();
+		loginPage.userName.sendKeys(ConfigurationSkyware.getProporty("email"));
+		loginPage.password.sendKeys(ConfigurationSkyware.getProporty("password"));
+		loginPage.loginButton.click();
 		
 	}
 	

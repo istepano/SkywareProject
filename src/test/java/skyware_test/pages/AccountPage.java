@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import skyware_test.utilities.BrowserUtils;
+
 public class AccountPage {
 
 	WebDriver driver;
@@ -30,12 +32,12 @@ public class AccountPage {
 	public WebElement save;
 	
 	@FindBy(id="searchTerm")
-	public WebElement searchBoxCategories;
+	public WebElement searchBoxCategory;
 	
 	@FindBy(id="nameTxt")
 	public WebElement searchItem;
 	
-	@FindBy(xpath="(//input[@class='editButton'])[2]")
+	@FindBy(xpath="//div[@id='contactSection']//input[@value='Edit']")
 	public WebElement editButton;
 	
 	@FindBy(id="profile_firstName")
@@ -56,9 +58,19 @@ public class AccountPage {
 	@FindBy(id="subtabLink")
 	public WebElement logoutButton;
 	
-	@FindBy(id="subtabLink")
+	@FindBy(id="messages")
 	public WebElement logoutMessage;
 	
+	@FindBy(id="deleteButton")
+	public WebElement deleteButton;
+	
+	@FindBy(id="exitButton")
+	public WebElement cancelButton;
+	
+	
+//	public void edit() {
+//		BrowserUtils.waitForClickablility(editButton, 30).click();
+//	}
 	
 	public void selectFirstTab(String NameYourTab) {
 		driver.findElement(By.linkText(NameYourTab)).click();

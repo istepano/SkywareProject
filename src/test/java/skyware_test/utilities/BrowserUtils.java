@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -15,6 +16,9 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.google.common.base.Function;
+
+import skyware_test.pages.AccountPage;
+import skyware_test.pages.HomePage;
 
 public class BrowserUtils {
 
@@ -97,8 +101,7 @@ public class BrowserUtils {
 		driver.switchTo().window(origin);
 	}
 	
-	public static boolean isClickable(WebElement el, WebDriver driver) 
-    {
+	public static boolean isClickable(WebElement el, WebDriver driver) {
         try{
             WebDriverWait wait = new WebDriverWait(driver, 6);
             wait.until(ExpectedConditions.elementToBeClickable(el));
@@ -108,6 +111,28 @@ public class BrowserUtils {
             return false;
         }
     }
+	
+//	public static void scroll(String idName) {
+//		JavascriptExecutor jse = (JavascriptExecutor)driver;
+//		WebElement element = driver.findElement(By.id(idName));
+//		jse.executeScript("arguments[0].scrollIntoView(true);", element);
+//	}
+	
+	public static void scroll() {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,550)", "");
+	}
+	
+	public static void removeCategoryABC() {
+		AccountPage accountPage = new AccountPage(driver);
+		accountPage.searchBoxCategory.sendKeys("Category ABC"+Keys.ENTER);
+		waitFor(5);
+		if(accountPage.searchItem.getText().contains("Category ABC")) {
+			accountPage.searchItem.click();
+			scroll();
+			accountPage.cancelButton.click();
+		}
+	}
 
 
 }
