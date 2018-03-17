@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
@@ -22,14 +23,14 @@ public class TestBaseClass {
 
 	protected WebDriver driver;
 	
-	@BeforeClass(alwaysRun=true)
+	@BeforeMethod(alwaysRun=true)
 	public void setUp() {
 		driver=Driver.getDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get(ConfigurationSkyware.getProporty("url"));
 		
 	}
-	@AfterClass(alwaysRun=true)
+	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
 		Driver.closeDriver();
 	}

@@ -13,6 +13,11 @@ public class AccountPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	@FindBy(id="ticketTitleRow")
+	public WebElement ticketTitleRow;
+	
+	@FindBy(id="pendingEmptyRow")
+	public WebElement pendingInventation;
 	
 	@FindBy(id="lastLoginDate_sort")
 	public WebElement lastLoginDateField;

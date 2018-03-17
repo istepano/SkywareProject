@@ -12,6 +12,10 @@ public class LoginPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
+	@FindBy(id="messages")
+	public WebElement incorrectUsernameMessage ;
+	
 	@FindBy(id="username")
 	public WebElement userName;
 	
