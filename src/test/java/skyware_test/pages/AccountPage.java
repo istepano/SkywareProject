@@ -15,6 +15,23 @@ public class AccountPage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	@FindBy(id="ticketTitleRow")
+	public WebElement ticketTitleRow;
+	
+	@FindBy(id="pendingEmptyRow")
+	public WebElement pendingInventation;
+	
+	@FindBy(id="lastLoginDate_sort")
+	public WebElement lastLoginDateField;
+	
+	@FindBy(id="registerDate_sort")
+	public WebElement registerDateField;
+	
+	@FindBy(id="active_sort")
+	public WebElement activeField;
+	
+	@FindBy(id="email_sort")
+	public WebElement emailSortField;
 	
 	@FindBy(id="thirdtabLink")
 	public WebElement categoryTab;
