@@ -11,10 +11,12 @@ import skyware_test.utilities.BrowserUtils;
 public class AccountPage {
 
 	WebDriver driver;
+	
 	public AccountPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+	
 	@FindBy(id="ticketTitleRow")
 	public WebElement ticketTitleRow;
 	
@@ -43,34 +45,16 @@ public class AccountPage {
 	public WebElement createNewCategory;
 	
 	@FindBy(id="name")
-	public WebElement categoryName;
+	public WebElement nameField;
 	
 	@FindBy(id="saveButton")
 	public WebElement save;
 	
 	@FindBy(id="searchTerm")
-	public WebElement searchBoxCategory;
+	public WebElement searchBox;
 	
 	@FindBy(id="nameTxt")
 	public WebElement searchItem;
-	
-	@FindBy(xpath="//div[@id='contactSection']//input[@value='Edit']")
-	public WebElement editButton;
-	
-	@FindBy(id="profile_firstName")
-	public WebElement firstName;
-	
-	@FindBy(id="profile_lastName")
-	public WebElement lastName;
-	
-	@FindBy(xpath="(//input[@class='saveButton'])[2]")
-	public WebElement saveButton;
-	
-	@FindBy(xpath="(//span[@class='placeholder'])[4]")
-	public WebElement savedFirstName;
-	
-	@FindBy(xpath="(//span[@class='placeholder'])[5]")
-	public WebElement savedLastName;
 	
 	@FindBy(id="subtabLink")
 	public WebElement logoutButton;
@@ -83,6 +67,24 @@ public class AccountPage {
 	
 	@FindBy(id="exitButton")
 	public WebElement cancelButton;
+	
+	@FindBy(id="newCustomFieldButton")
+	public WebElement createCustomFieldButton;
+	
+	@FindBy(id="transactionType")
+	public WebElement transactionDropDown;
+	
+	@FindBy(id="name")
+	public WebElement customFieldName;
+	
+	@FindBy(id="saveButton")
+	public WebElement saveButton1;
+	
+	@FindBy(id="adjustmentNameTxt")
+	public WebElement adjustmentName;
+	
+	@FindBy(id="newVendorButton")
+	public WebElement createVendorButton;
 	
 	
 //	public void edit() {

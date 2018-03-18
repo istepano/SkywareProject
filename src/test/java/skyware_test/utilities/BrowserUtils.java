@@ -112,25 +112,35 @@ public class BrowserUtils {
         }
     }
 	
-//	public static void scroll(String idName) {
-//		JavascriptExecutor jse = (JavascriptExecutor)driver;
-//		WebElement element = driver.findElement(By.id(idName));
-//		jse.executeScript("arguments[0].scrollIntoView(true);", element);
-//	}
-	
-	public static void scroll() {
+	public static void scrollDown() {
 		JavascriptExecutor jse = (JavascriptExecutor)driver;
 		jse.executeScript("window.scrollBy(0,550)", "");
 	}
 	
+	public static void scrollUp() {
+		JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(250,0)", "");
+	}
+	
 	public static void removeCategoryABC() {
 		AccountPage accountPage = new AccountPage(driver);
-		accountPage.searchBoxCategory.sendKeys("Category ABC"+Keys.ENTER);
+		accountPage.searchBox.sendKeys("Category ABC"+Keys.ENTER);
 		waitFor(5);
 		if(accountPage.searchItem.getText().contains("Category ABC")) {
 			accountPage.searchItem.click();
-			scroll();
-			accountPage.cancelButton.click();
+			scrollDown();
+			accountPage.deleteButton.click();
+		}
+	}
+	
+	public static void removeVendorABC() {
+		AccountPage accountPage = new AccountPage(driver);
+		accountPage.searchBox.sendKeys("Vendor ABC"+Keys.ENTER);
+		waitFor(3);
+		if(accountPage.searchItem.getText().contains("Vendor ABC")) {
+			accountPage.searchItem.click();
+			scrollDown();
+			accountPage.deleteButton.click();
 		}
 	}
 
