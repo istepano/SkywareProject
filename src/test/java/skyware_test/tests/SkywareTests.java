@@ -26,23 +26,25 @@ import skyware_test.utilities.TestBaseClass;
 public class SkywareTests extends TestBaseClass{
 	
 
-	@Test (priority=1) //Asma this is a smoke test 
+	@Test (priority=1, groups="Smoke test") 
 	public void smokeTest() throws InterruptedException {
-		HomePage homePage = new HomePage(driver);
-		AccountPage accountPage = new AccountPage(driver);
-		MyProfilePage profilePage=new MyProfilePage(driver);
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage profilePage=new MyProfilePage();
 		homePage.automaticLogin();
 		homePage.isAt();
+		
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Categories");
 		BrowserUtils.removeCategoryABC();
-		BrowserUtils.waitForClickablility(accountPage.createNewCategory, 3).click();
+		BrowserUtils.waitFor(3);
+		BrowserUtils.scrollUp();
+		BrowserUtils.waitForClickablility(accountPage.createNewCategory, 5).click();
 		accountPage.nameField.sendKeys("Category ABC");
 		accountPage.save.click();
 		accountPage.searchBox.sendKeys(Keys.ENTER);
 		
 		assertTrue(accountPage.searchItem.isDisplayed());
-		//accountPage.cancelButton.click();
 
 		accountPage.selectFirstTab("My Profile");
 		BrowserUtils.scrollDown();
@@ -62,9 +64,9 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_01(){//Ilya Stepanov - 3 steps are missed
-		AccountPage accountPage = new AccountPage(driver);
+		AccountPage accountPage = new AccountPage();
 		BrowserUtils browserUtils=new BrowserUtils();
-		HomePage homePage = new HomePage(driver);
+		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
@@ -82,8 +84,8 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_02() {//by Ilya Stepanov // 2 steps are missed 
-		AccountPage accountPage = new AccountPage(driver);
-		HomePage homePage = new HomePage(driver);
+		AccountPage accountPage = new AccountPage();
+		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Users");
@@ -95,7 +97,7 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_03() {
-		HomePage homePage = new HomePage(driver);
+		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
 		assertEquals(driver.getTitle(), "Skyware Inventory | Dashboard");
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
@@ -103,8 +105,8 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_04() {
-		LoginPage loginPage = new LoginPage(driver);
-		HomePage homePage = new HomePage(driver);
+		LoginPage loginPage = new LoginPage();
+		HomePage homePage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		homePage.isAt();
 		homePage.loginHome.click();
@@ -117,9 +119,9 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_05() {
-		AccountPage accountPage = new AccountPage(driver);
-		LoginPage loginPage = new LoginPage(driver);
-		HomePage homePage = new HomePage(driver);
+		AccountPage accountPage = new AccountPage();
+		LoginPage loginPage = new LoginPage();
+		HomePage homePage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
@@ -133,8 +135,8 @@ public class SkywareTests extends TestBaseClass{
 	
 	//@Test
 	public void TC_06() {
-		HomePage homePage = new HomePage(driver);
-		AccountPage accountPage = new AccountPage(driver);
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Custom Fields");
@@ -149,8 +151,8 @@ public class SkywareTests extends TestBaseClass{
 	
 //	@Test
 	public void TC_07() {
-		HomePage homePage = new HomePage(driver);
-		AccountPage accountPage = new AccountPage(driver);
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Vendors");
@@ -163,10 +165,19 @@ public class SkywareTests extends TestBaseClass{
 		accountPage.searchBox.sendKeys(Keys.ENTER);
 		
 		assertTrue(accountPage.searchItem.isDisplayed());
+	}
+	
+//	@Test 
+	public void TC_08() {
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		homePage.automaticLogin();
+		homePage.isAt();
 		
+		accountPage.selectFirstTab("Account");
+		accountPage.selectSubTab("Tax Authorities");
 		
-		
-		
+		assertTrue(accountPage.searchItem.isDisplayed());
 		
 	}
 	
