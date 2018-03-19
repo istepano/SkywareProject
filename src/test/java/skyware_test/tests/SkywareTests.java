@@ -26,7 +26,7 @@ import skyware_test.utilities.TestBaseClass;
 public class SkywareTests extends TestBaseClass{
 	
 
-	@Test (priority=1) //Asma this is a smoke test 
+	//@Test //(priority=1) //Asma this is a smoke test 
 	public void smokeTest() throws InterruptedException {
 		HomePage homePage = new HomePage(driver);
 		AccountPage accountPage = new AccountPage(driver);
@@ -65,7 +65,6 @@ public class SkywareTests extends TestBaseClass{
 		AccountPage accountPage = new AccountPage(driver);
 		BrowserUtils browserUtils=new BrowserUtils();
 		HomePage homePage = new HomePage(driver);
-		homePage.automaticLogin();
 		homePage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Users");
@@ -115,7 +114,7 @@ public class SkywareTests extends TestBaseClass{
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");	
 	}
 	
-	//@Test
+	@Test
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage(driver);
 		LoginPage loginPage = new LoginPage(driver);
@@ -131,7 +130,7 @@ public class SkywareTests extends TestBaseClass{
 		}	
 	}
 	
-	//@Test
+	@Test
 	public void TC_06() {
 		HomePage homePage = new HomePage(driver);
 		AccountPage accountPage = new AccountPage(driver);
@@ -147,7 +146,7 @@ public class SkywareTests extends TestBaseClass{
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 	
-//	@Test
+	@Test
 	public void TC_07() {
 		HomePage homePage = new HomePage(driver);
 		AccountPage accountPage = new AccountPage(driver);
@@ -163,6 +162,8 @@ public class SkywareTests extends TestBaseClass{
 		accountPage.searchBox.sendKeys(Keys.ENTER);
 		
 		assertTrue(accountPage.searchItem.isDisplayed());
+		BrowserUtils.waitFor(3);
+		
 	}
 	
 }
