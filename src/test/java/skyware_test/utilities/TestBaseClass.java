@@ -33,6 +33,6 @@ public class TestBaseClass {
 
 	@AfterMethod(alwaysRun=true)
 	public void tearDown() {
-	//	Driver.closeDriver();
+		Driver.closeDriver();
 	}
 }
