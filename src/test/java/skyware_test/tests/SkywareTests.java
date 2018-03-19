@@ -117,7 +117,7 @@ public class SkywareTests extends TestBaseClass{
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");	
 	}
 	
-	@Test
+//	@Test
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -133,7 +133,7 @@ public class SkywareTests extends TestBaseClass{
 		}	
 	}
 	
-	@Test
+//	@Test
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -149,7 +149,7 @@ public class SkywareTests extends TestBaseClass{
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 	
-	@Test
+//	@Test
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
