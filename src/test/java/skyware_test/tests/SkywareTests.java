@@ -1,12 +1,15 @@
 package skyware_test.tests;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
@@ -181,5 +184,106 @@ public class SkywareTests extends TestBaseClass{
 
 		
 	}
+	
+	@Test(priority=9)//Andy 
+	public void TC_09(){
+		BrowserUtils browserUtils = new BrowserUtils();
+		HomePage homepage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		
+		browserUtils.waitFor(2);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("Account");
+		accountPage.selectSubTab("Tax Authorities");
+		browserUtils.waitFor(2);
+
+		driver.findElement(By.id("newTaxAuthorityButton")).click();
+		WebElement inputBox=driver.findElement(By.xpath("//input[@id='name']"));
+		inputBox.click();
+		inputBox.sendKeys("MD Sales Tax");
+		driver.findElement(By.id("saveButton")).click();
+		browserUtils.waitFor(3);
+
+		assertEquals(driver.findElement(By.xpath("(//a[@id='nameTxt'])[1]")).getText(),"MD Sales Tax");
+		String recordStr=driver.findElement(By.id("recordNo")).getText();
+		recordStr=recordStr.substring(recordStr.length()-1, recordStr.length());
+		int recordNum=Integer.parseInt(recordStr);
+		assertEquals(2,recordNum);
+		
+	}
+	@Test(priority=10)//Andy 
+	public void TC_10() throws InterruptedException{
+		HomePage homepage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("Account");
+		accountPage.selectSubTab("Tax Authorities");
+		Thread.sleep(2000);
+
+		driver.findElement(By.id("newTaxAuthorityButton")).click();
+		driver.findElement(By.id("deleteButton")).click();
+		Thread.sleep(10000);
+		
+		WebElement red=driver.findElement(By.xpath("//div[@class='ui-tooltip-content']"));
+		String redStr=red.getCssValue("color");
+		System.out.println(redStr);
+		String redColor="rgba(145, 35, 35, 1)";
+		assertEquals(redStr,redColor);
+		
+		
+	}
+	@Test(priority=11)//Andy 
+	public void TC_11(){
+		HomePage homepage = new HomePage();
+		BrowserUtils browserUtils = new BrowserUtils();
+		AccountPage accountPage = new AccountPage();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		browserUtils.waitFor(4);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("Account");
+		accountPage.selectSubTab("Tax Authorities");
+		driver.findElement(By.linkText("MD Sales Tax")).click();
+		driver.findElement(By.xpath("//ul//input[@class='delete']")).click();
+		String vaSalesTax=driver.findElement(By.linkText("VA Sales Tax")).getText();
+		assertEquals(vaSalesTax,"VA Sales Tax");
+		browserUtils.waitFor(4);
+
+	try {
+		assertFalse(driver.findElement(By.linkText("MD Sales Tax")).isDisplayed());
+	}catch(NoSuchElementException e) {
+		assertTrue(true);
+	}
+		
+
+		
+		
+	}
+	@Test(priority=12)//Andy 
+	public void TC_12() throws InterruptedException{
+		HomePage homepage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		Thread.sleep(2000);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("Account");
+		accountPage.selectFirstTab("Custom Fields");
+		driver.findElement(By.linkText("Create New Custom Field")).click();
+		WebElement dropdown=driver.findElement(By.id("transactionType"));
+		Select list=new Select(dropdown);
+		list.selectByValue("Transfer");
+		WebElement input=driver.findElement(By.xpath("//input[@id='name']"));
+		input.click();
+		input.sendKeys("Transfer Test");
+		driver.findElement(By.xpath("//input[@id='saveButton']")).click();
+		assertTrue(driver.findElement(By.linkText("Transfer Test")).isDisplayed());
+		
+		
+		
+		
+	}
+	
+	
 	
 }
