@@ -3,16 +3,12 @@ package skyware_test.tests;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertTrue;
-
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import skyware_test.pages.AccountPage;
@@ -27,7 +23,7 @@ public class SkywareTests extends TestBaseClass{
 	
 
 
-	@Test (priority=1, groups="Smoke test") 
+	@Test (priority=0, groups="Smoke test") 
 		public void smokeTest() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -58,12 +54,13 @@ public class SkywareTests extends TestBaseClass{
 		assertTrue(profilePage.savedLastName.isDisplayed());
 		
 		accountPage.logoutButton.click();
-		
+		BrowserUtils.waitForPageToLoad(2);
 		assertEquals("You have successfully logged out.", accountPage.logoutMessage.getText());
+		BrowserUtils.waitForPageToLoad(4);
 
 	}
 	
-	//@Test
+	@Test(priority=1)
 	public void TC_01(){//Ilya Stepanov - 3 steps are missed
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils browserUtils=new BrowserUtils();
@@ -82,7 +79,7 @@ public class SkywareTests extends TestBaseClass{
 
 	}
 	
-	//@Test
+	@Test(priority=2)
 	public void TC_02() {//by Ilya Stepanov // 2 steps are missed 
 		AccountPage accountPage = new AccountPage();
 		HomePage homePage = new HomePage();
@@ -95,7 +92,7 @@ public class SkywareTests extends TestBaseClass{
 		//Step 5 Why do we need save any Name under Tickets category ?	
 	}
 	
-	//@Test
+	@Test(priority=3)
 	public void TC_03() {
 		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
@@ -103,7 +100,7 @@ public class SkywareTests extends TestBaseClass{
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 	
-	//@Test
+	@Test(priority=4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -117,7 +114,7 @@ public class SkywareTests extends TestBaseClass{
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");	
 	}
 	
-	//@Test
+	@Test(priority=5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -133,7 +130,7 @@ public class SkywareTests extends TestBaseClass{
 		}	
 	}
 	
-	@Test
+	@Test(priority=6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -149,7 +146,7 @@ public class SkywareTests extends TestBaseClass{
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 	
-	@Test
+	@Test(priority=7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -168,7 +165,7 @@ public class SkywareTests extends TestBaseClass{
 
 	}
 	
-//	@Test 
+	@Test (priority=8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();

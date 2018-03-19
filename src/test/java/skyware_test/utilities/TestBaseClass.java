@@ -22,9 +22,9 @@ public class TestBaseClass {
 	
 
 	protected WebDriver driver;
-	
+	@Parameters("browser")
 	@BeforeMethod(alwaysRun=true)
-	public void setUp() {
+	public void setUp(@Optional String browser) {
 		driver=Driver.getDriver();
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get(ConfigurationSkyware.getProporty("url"));
