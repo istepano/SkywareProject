@@ -7,13 +7,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import skyware_test.utilities.BrowserUtils;
+import skyware_test.utilities.Driver;
 
 public class AccountPage {
 
 	WebDriver driver;
 	
-	public AccountPage(WebDriver driver) {
-		this.driver = driver;
+	public AccountPage() {
+		this.driver = Driver.getDriver();
 		PageFactory.initElements(driver, this);
 	}
 	

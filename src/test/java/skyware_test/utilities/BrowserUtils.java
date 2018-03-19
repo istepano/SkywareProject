@@ -123,7 +123,7 @@ public class BrowserUtils {
 	}
 	
 	public static void removeCategoryABC() {
-		AccountPage accountPage = new AccountPage(driver);
+		AccountPage accountPage = new AccountPage();
 		accountPage.searchBox.sendKeys("Category ABC"+Keys.ENTER);
 		waitFor(5);
 		if(accountPage.searchItem.getText().contains("Category ABC")) {
@@ -134,7 +134,7 @@ public class BrowserUtils {
 	}
 	
 	public static void removeVendorABC() {
-		AccountPage accountPage = new AccountPage(driver);
+		AccountPage accountPage = new AccountPage();
 		accountPage.searchBox.sendKeys("Vendor ABC"+Keys.ENTER);
 		waitFor(3);
 		if(accountPage.searchItem.getText().contains("Vendor ABC")) {
