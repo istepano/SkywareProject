@@ -67,7 +67,7 @@ public class AccountPage {
 	
 	@FindBy(id="exitButton")
 	public WebElement cancelButton;
-	
+	 
 	@FindBy(id="newCustomFieldButton")
 	public WebElement createCustomFieldButton;
 	
@@ -89,7 +89,7 @@ public class AccountPage {
 	
 //	public void edit() {
 //		BrowserUtils.waitForClickablility(editButton, 30).click();
-//	}
+//	}	//github.com/istepano/SkywareProject.git
 	
 	public void selectFirstTab(String NameYourTab) {
 		driver.findElement(By.linkText(NameYourTab)).click();

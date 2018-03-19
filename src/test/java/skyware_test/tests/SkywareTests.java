@@ -163,11 +163,6 @@ public class SkywareTests extends TestBaseClass{
 		accountPage.searchBox.sendKeys(Keys.ENTER);
 		
 		assertTrue(accountPage.searchItem.isDisplayed());
-		
-		
-		
-		
-		
 	}
 	
 }
