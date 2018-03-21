@@ -206,7 +206,7 @@ public class SkywareTests extends TestBaseClass{
 		String recordStr=accountPage.recordNum.getText();
 		recordStr=recordStr.substring(recordStr.length()-1, recordStr.length());
 		int recordNum=Integer.parseInt(recordStr);
-		assertEquals(2,recordNum);
+		assertEquals(recordNum,2);
 		
 	}
 	@Test(priority=10)//Andy 
