@@ -1,6 +1,10 @@
 package skyware_test.pages;
 
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -87,6 +91,51 @@ public class AccountPage {
 	@FindBy(id="newVendorButton")
 	public WebElement createVendorButton;
 	
+	@FindBy(id="newTaxAuthorityButton")
+	public WebElement taxAuthorityButton;
+	
+	@FindBy(xpath="//input[@id='name']")
+	public WebElement createNewSalesTaxButton;
+	
+	@FindBy(id="saveButton")
+	public WebElement newSalesTaxSaveButton;
+	
+
+	@FindBy(xpath="(//a[@id='nameTxt'])[1]")
+	public WebElement mdTaxSales;
+	
+	@FindBy(id="recordNo")
+	public WebElement recordNum;
+	
+	@FindBy(id="deleteButton")
+	public WebElement newSalesTaxDeleteButton;
+	
+	@FindBy(xpath="//div[@class='ui-tooltip-content']")
+	public WebElement redColor;
+	
+	@FindBy(linkText="MD Sales Tax")
+	public WebElement mDLink;
+	
+	@FindBy(xpath="//ul//input[@class='delete']")
+	public WebElement mdDeleteButton;
+	
+	@FindBy(linkText="VA Sales Tax")
+	public WebElement vAlink;
+	
+	@FindBy(linkText="Transfer Test")
+	public WebElement transferTest;
+	
+	
+	
+
+	public void tryCatch(WebElement element) {
+		try {
+			assertFalse(element.isDisplayed());
+		}catch(NoSuchElementException e) {
+			assertTrue(true);
+		}
+			
+	}
 	
 //	public void edit() {
 //		BrowserUtils.waitForClickablility(editButton, 30).click();
