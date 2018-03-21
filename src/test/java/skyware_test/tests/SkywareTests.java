@@ -213,7 +213,6 @@ public class SkywareTests extends TestBaseClass{
 	public void TC_10() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		BrowserUtils.waitFor(2);
 		homepage.automaticLogin();
 		accountPage.selectFirstTab("Account");
