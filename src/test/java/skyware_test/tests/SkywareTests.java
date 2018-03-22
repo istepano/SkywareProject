@@ -189,19 +189,18 @@ public class SkywareTests extends TestBaseClass{
 	
 	@Test(priority=9)//Andy 
 	public void TC_09(){
-		BrowserUtils browserUtils = new BrowserUtils();
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
-		browserUtils.waitFor(2);
+		BrowserUtils.waitFor(2);
 		homepage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Tax Authorities");
-		browserUtils.waitFor(2);
+		BrowserUtils.waitFor(2);
 		accountPage.taxAuthorityButton.click();
 		accountPage.createNewSalesTaxButton.click();
 		accountPage.createNewSalesTaxButton.sendKeys("MD Sales Tax");
 		accountPage.newSalesTaxSaveButton.click();
-		browserUtils.waitFor(3);
+		BrowserUtils.waitFor(3);
 		assertEquals(accountPage.mdTaxSales.getText(),"MD Sales Tax");
 		String recordStr=accountPage.recordNum.getText();
 		recordStr=recordStr.substring(recordStr.length()-1, recordStr.length());
@@ -231,10 +230,9 @@ public class SkywareTests extends TestBaseClass{
 	@Test(priority=11)//Andy 
 	public void TC_11(){
 		HomePage homepage = new HomePage();
-		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-		browserUtils.waitFor(4);
+		BrowserUtils.waitFor(4);
 		homepage.automaticLogin();
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Tax Authorities");
@@ -242,7 +240,7 @@ public class SkywareTests extends TestBaseClass{
 		accountPage.mdDeleteButton.click();
 		String vaSalesTax=accountPage.vAlink.getText();
 		assertEquals(vaSalesTax,"VA Sales Tax");
-		browserUtils.waitFor(4);
+		BrowserUtils.waitFor(4);
 		accountPage.tryCatch(accountPage.mDLink);
 	}
 	@Test(priority=12)//Andy 
@@ -268,7 +266,5 @@ public class SkywareTests extends TestBaseClass{
 		
 		
 	}
-	
-	
-	
+
 }

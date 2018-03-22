@@ -33,5 +33,7 @@ public class MyProfilePage {
 	
 	@FindBy(xpath="(//span[@class='placeholder'])[5]")
 	public WebElement savedLastName;
+	
+	
 
 }
