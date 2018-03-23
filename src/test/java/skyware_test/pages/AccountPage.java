@@ -4,6 +4,8 @@ import static org.testng.Assert.assertFalse;
 
 import static org.testng.Assert.assertTrue;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -148,5 +150,31 @@ public class AccountPage {
 	public void selectSubTab(String NameAccountSubTab) {
 		driver.findElement(By.linkText(NameAccountSubTab)).click();
 	}
+	@FindBy(xpath="//div[@class='tooltip ui-corner-all pie']")
+	public WebElement vendorInfo;
+	
+	@FindBy(xpath="(//h2)[2]")
+	public WebElement vendorInfoText;
+	
+	@FindBy(xpath="//ul[@id='form_actions']")
+	public WebElement verifyButtonsExists;
+	
+	@FindBy(xpath="//li[@id='recordNo']")
+	public List<WebElement> templateRows;
+	
+	@FindBy(xpath="//li[@id='recordNo']")
+	public WebElement choose100;
+	
+	@FindBy(xpath="//*[@id='listingSection']/div[1]/select")
+	public WebElement to100;
+	
+	@FindBy(xpath="//option[@value='100']")
+	public WebElement hundred;
+	
+	@FindBy(xpath="//div[@class='close']")
+	public WebElement closeButton;
+	
+	@FindBy(xpath="//a[@id='nextPage']")
+	public WebElement  nextPage;
 	
 }
