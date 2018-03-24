@@ -261,9 +261,41 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.transferTest.isDisplayed());
 
 	}
+	@Test(priority=13)
+	public void TC_13() throws InterruptedException{
+		
+		
+		HomePage homepage = new HomePage();
+		BrowserUtils browserUtils = new BrowserUtils();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage myProfilePage = new MyProfilePage();
+		browserUtils.waitFor(4);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
+	
+		
+		assertEquals(driver.getTitle(),"Skyware Inventory | My Profile");
+		
+		myProfilePage.editInfo();
+		Thread.sleep(5000);
+		
+		
+		//System.out.println(myProfilePage.countryInOrder());
+		
+		
+		
+		myProfilePage.changeCountry(6);
+		
+		assertEquals(myProfilePage.getState(),"VA");
+		
+		
+		
+		
+		Thread.sleep(5000);
+	}
 
 	
-	@Test(priority = 16) //Afsheen
+	//@Test(priority = 16) //Afsheen
 	public void TC_16() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();

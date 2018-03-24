@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Skyware Automation Test" verbose="2">
+
+	<test name="Smoke Test">
+		<classes>
+			<class name ="skyware_test.tests.SkywareTests"></class>
+		</classes>
+	</test>
+
+</suite>
