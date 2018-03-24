@@ -293,9 +293,12 @@ public class SkywareTests extends TestBaseClass {
 		profilePage.profilePhone.sendKeys("7387434344");
 		profilePage.cancelButton.click();
 		List<WebElement>contactinfo=profilePage.contactInfo;
+		String contactInfoString = "";
 		for(WebElement i : contactinfo) {
-			System.out.println(i.toString());
+			contactInfoString+=i.getText()+" ";
 		}
+		System.out.println(contactInfoString);
+		
 	}
 //		assertTrue(profilePage.savedFirstName.isDisplayed());
 //		assertTrue(profilePage.savedLastName.isDisplayed());
