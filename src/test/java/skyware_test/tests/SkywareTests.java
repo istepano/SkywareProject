@@ -264,7 +264,7 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.transferTest.isDisplayed());
 
 	}
-	//@Test(priority=13)
+	@Test(priority=13)
 	public void TC_13() throws InterruptedException{
 		
 		
@@ -283,11 +283,7 @@ public class SkywareTests extends TestBaseClass {
 		
 		List<WebElement> dropdown= myProfilePage.countrySelectList;
 		
-		List<String> sortedDropDown = browserUtils.getElementsFromDropdown(dropdown);
-		
-		Collections.sort(sortedDropDown);
-		assertEquals(sortedDropDown, browserUtils.getElementsFromDropdown(dropdown));	
-		
+		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdown));
 		myProfilePage.changeCountry(6);
 		assertEquals(myProfilePage.getState(),"VA");
 		
@@ -313,18 +309,8 @@ public class SkywareTests extends TestBaseClass {
 		browserUtils.waitFor(2);
 		myProfilePage.state.isDisplayed();
 		List<WebElement> dropdownStates = myProfilePage.stateSelectList;
-		List<String> sortedDropDownStates= browserUtils.getElementsFromDropdown(dropdownStates);
-		browserUtils.getElementsFromDropdown(dropdownStates).remove(61);
-		browserUtils.getElementsFromDropdown(dropdownStates).remove(60);
-		browserUtils.getElementsFromDropdown(dropdownStates).remove(59);
-		sortedDropDownStates.remove(61);
-		sortedDropDownStates.remove(60);
-		sortedDropDownStates.remove(59);
-		Collections.sort(sortedDropDownStates);
-		assertEquals(sortedDropDownStates, browserUtils.getElementsFromDropdown(dropdownStates));
+		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdownStates));
 	
-		
-		Thread.sleep(5000);
 	}
 
 	
