@@ -4,6 +4,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -261,7 +264,7 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.transferTest.isDisplayed());
 
 	}
-	@Test(priority=13)
+	//@Test(priority=13)
 	public void TC_13() throws InterruptedException{
 		
 		
@@ -272,24 +275,54 @@ public class SkywareTests extends TestBaseClass {
 		browserUtils.waitFor(4);
 		homepage.automaticLogin();
 		accountPage.selectFirstTab("My Profile");
-	
 		
 		assertEquals(driver.getTitle(),"Skyware Inventory | My Profile");
+		BrowserUtils.scrollDown();
+		myProfilePage.editButton.click();
+		browserUtils.waitFor(2);
 		
-		myProfilePage.editInfo();
-		Thread.sleep(5000);
+		List<WebElement> dropdown= myProfilePage.countrySelectList;
 		
+		List<String> sortedDropDown = browserUtils.getElementsFromDropdown(dropdown);
 		
-		//System.out.println(myProfilePage.countryInOrder());
-		
-		
+		Collections.sort(sortedDropDown);
+		assertEquals(sortedDropDown, browserUtils.getElementsFromDropdown(dropdown));	
 		
 		myProfilePage.changeCountry(6);
-		
 		assertEquals(myProfilePage.getState(),"VA");
 		
 		
+	}
+	@Test(priority=14)
+	public void TC_14() throws InterruptedException{
 		
+		
+		HomePage homepage = new HomePage();
+		BrowserUtils browserUtils = new BrowserUtils();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage myProfilePage = new MyProfilePage();
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
+	
+		assertEquals(driver.getTitle(),"Skyware Inventory | My Profile");
+		browserUtils.waitFor(2);
+		BrowserUtils.scrollDown();
+		myProfilePage.editButton.click();
+		Select select = new Select(myProfilePage.country);
+		select.selectByValue("United States");
+		browserUtils.waitFor(2);
+		myProfilePage.state.isDisplayed();
+		List<WebElement> dropdownStates = myProfilePage.stateSelectList;
+		List<String> sortedDropDownStates= browserUtils.getElementsFromDropdown(dropdownStates);
+		browserUtils.getElementsFromDropdown(dropdownStates).remove(61);
+		browserUtils.getElementsFromDropdown(dropdownStates).remove(60);
+		browserUtils.getElementsFromDropdown(dropdownStates).remove(59);
+		sortedDropDownStates.remove(61);
+		sortedDropDownStates.remove(60);
+		sortedDropDownStates.remove(59);
+		Collections.sort(sortedDropDownStates);
+		assertEquals(sortedDropDownStates, browserUtils.getElementsFromDropdown(dropdownStates));
+	
 		
 		Thread.sleep(5000);
 	}

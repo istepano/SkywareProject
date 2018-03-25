@@ -35,6 +35,11 @@ public class MyProfilePage {
 	@FindBy(xpath="//input[@id='profile_lastName']")
 	public WebElement lastName;
 	
+	
+	
+	@FindBy(xpath="//select[@id='countrySelect']/option")
+	public List<WebElement> countrySelectList;
+	
 	@FindBy(xpath="//select[@id='countrySelect']")
 	public WebElement countrySelect;
 	
@@ -43,14 +48,35 @@ public class MyProfilePage {
     	select.selectByVisibleText(options);
 	}
 	
+	@FindBy(id="countrySelect")
+	public WebElement country;
+	
+	@FindBy(id="stateSelect")
+	public WebElement state;
+	
+	public String getState() {
+		return state.getAttribute("value");
+	}
+	public void changeCountry(int i) {
+		Select select = new Select(country);
+		select.selectByIndex(i);
+		
+	}
+	
 	@FindBy(xpath="//input[@id='profile_address1']")
 	public WebElement profileAddress;
 	
 	@FindBy(xpath="//input[@id='profile_city']")
 	public WebElement profileCity;
 	
-	@FindBy(xpath="//input[@id='stateSelect']")
+	@FindBy(id="stateSelect")
 	public WebElement stateSelect;
+	//select[@id='stateSelect']/option
+	
+	@FindBy(xpath="//select[@id='stateSelect']/option")
+	public List<WebElement> stateSelectList;
+	
+	
 	
 	@FindBy(xpath="//input[@id='profile_zip']")
 	public WebElement profileZip;
