@@ -60,7 +60,7 @@ public class SkywareTests extends TestBaseClass{
 
 	}
 	
-	@Test(priority=1)
+//	@Test(priority=1)
 	public void TC_01(){//Ilya Stepanov - 3 steps are missed
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils browserUtils=new BrowserUtils();
@@ -79,7 +79,7 @@ public class SkywareTests extends TestBaseClass{
 
 	}
 	
-	@Test(priority=2)
+//	@Test(priority=2)
 	public void TC_02() {//by Ilya Stepanov // 2 steps are missed 
 		AccountPage accountPage = new AccountPage();
 		HomePage homePage = new HomePage();
@@ -92,7 +92,7 @@ public class SkywareTests extends TestBaseClass{
 		//Step 5 Why do we need save any Name under Tickets category ?	
 	}
 	
-	@Test(priority=3)
+//	@Test(priority=3)
 	public void TC_03() {
 		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
@@ -100,7 +100,7 @@ public class SkywareTests extends TestBaseClass{
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 	
-	@Test(priority=4)
+//	@Test(priority=4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -116,7 +116,7 @@ public class SkywareTests extends TestBaseClass{
 	
 
 
-	@Test(priority=5)
+//	@Test(priority=5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -134,7 +134,7 @@ public class SkywareTests extends TestBaseClass{
 	
 
 
-	@Test(priority=6)
+//	@Test(priority=6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -152,7 +152,7 @@ public class SkywareTests extends TestBaseClass{
 	
 
 
-	@Test(priority=7)
+//	@Test(priority=7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -171,7 +171,7 @@ public class SkywareTests extends TestBaseClass{
 
 	}
 	
-	@Test (priority=8)
+//	@Test (priority=8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
