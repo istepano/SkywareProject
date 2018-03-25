@@ -24,7 +24,7 @@ import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass {
 
-//	@Test(priority = 0, groups = "Smoke test")
+	@Test(priority = 0, groups = "Smoke test")
 	public void smokeTest() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -61,7 +61,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-//	@Test(priority = 1)
+	@Test(priority = 1)
 	public void TC_01() {// Ilya Stepanov - 3 steps are missed
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils browserUtils = new BrowserUtils();
@@ -79,7 +79,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	public void TC_02() {// by Ilya Stepanov // 2 steps are missed
 		AccountPage accountPage = new AccountPage();
 		HomePage homePage = new HomePage();
@@ -92,7 +92,7 @@ public class SkywareTests extends TestBaseClass {
 		// Step 5 Why do we need save any Name under Tickets category ?
 	}
 
-//	@Test(priority = 3)
+	@Test(priority = 3)
 	public void TC_03() {
 		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
@@ -100,7 +100,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-//	@Test(priority = 4)
+	@Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -114,7 +114,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");
 	}
 
-//	@Test(priority = 5)
+	@Test(priority = 5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -130,7 +130,7 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	//@Test(priority = 6)
+	@Test(priority = 6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -146,7 +146,7 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 
-//	@Test(priority = 7)
+	@Test(priority = 7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -166,7 +166,7 @@ public class SkywareTests extends TestBaseClass {
 	
 
 
-//	@Test(priority = 8)
+	@Test(priority = 8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -182,7 +182,7 @@ public class SkywareTests extends TestBaseClass {
 	
 
 
-//	@Test(priority = 9) // Andy
+	@Test(priority = 9) // Andy
 	public void TC_09() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -205,7 +205,7 @@ public class SkywareTests extends TestBaseClass {
 		
 	}
 
-//	@Test(priority = 10) // Andy
+	@Test(priority = 10) // Andy
 	public void TC_10() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -224,7 +224,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-//	@Test(priority = 11) // Andy
+	@Test(priority = 11) // Andy
 	public void TC_11() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -242,7 +242,7 @@ public class SkywareTests extends TestBaseClass {
 		accountPage.tryCatch(accountPage.mDLink);
 	}
 
-	//@Test(priority = 12) // Andy
+	@Test(priority = 12) // Andy
 	public void TC_12() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -274,6 +274,13 @@ public class SkywareTests extends TestBaseClass {
 		BrowserUtils.scrollDown();
 		profilePage.editButtonProfile.click();
 		profilePage.saveButton.click();
+		List<WebElement>contactinfo=profilePage.contactInfo;
+		String contactInfoString = "";
+		for(WebElement i : contactinfo) {
+			contactInfoString+=i.getText()+" ";
+		}
+		System.out.println(contactInfoString);
+		
 		profilePage.editButtonProfile.click();
 		profilePage.accountName.clear();
 		profilePage.accountName.sendKeys("TechNinjas");
@@ -287,59 +294,79 @@ public class SkywareTests extends TestBaseClass {
 		profilePage.profileCity.clear();
 		profilePage.profileCity.sendKeys("Karachi");
 		profilePage.stateSelect.clear();
-		profilePage.stateSelect.sendKeys("Sindh");
+		profilePage.stateSelect.sendKeys("VA");
 		profilePage.profileZip.clear();
 		profilePage.profileZip.sendKeys("75950");
 		profilePage.profilePhone.sendKeys("7387434344");
 		profilePage.cancelButton.click();
-		List<WebElement>contactinfo=profilePage.contactInfo;
-		String contactInfoString = "";
-		for(WebElement i : contactinfo) {
-			contactInfoString+=i.getText()+" ";
-		}
-		System.out.println(contactInfoString);
 		
+		List<WebElement>contactinfoafter=profilePage.contactInfo;
+		String contactInfoStringAfter = "";
+		for(WebElement i : contactinfoafter) {
+			contactInfoStringAfter+=i.getText()+" ";
+		}
+		System.out.println(contactInfoStringAfter);
+			assertEquals(contactinfoafter.size(), contactinfo.size(), "Number of expected result options did not match");
+		for (int i = 0; i < contactinfo.size(); i++) {
+			assertEquals(contactinfoafter.get(i), contactinfo.get(i));
+		}
+
 	}
-//		assertTrue(profilePage.savedFirstName.isDisplayed());
-//		assertTrue(profilePage.savedLastName.isDisplayed());
-//
-//		BrowserUtils.waitForPageToLoad(2);
-//		assertEquals("You have successfully logged out.", accountPage.logoutMessage.getText());
-//		BrowserUtils.waitForPageToLoad(4);
-	
 
 	
-	//@Test(priority = 17) //Afsheen
+	@Test(priority = 17) //Afsheen
 	public void TC_17() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
 		homePage.automaticLogin();
 		homePage.isAt();
-		accountPage.selectFirstTab("My Profile");
-		BrowserUtils.scrollDown();
-		profilePage.editButton.click();
-		profilePage.saveButton.click();
-	
-		
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Categories");
-//		BrowserUtils.removeCategoryABC();
-//		BrowserUtils.waitFor(3);
-//		BrowserUtils.scrollUp();
-//		BrowserUtils.waitForClickablility(accountPage.createNewCategory, 5).click();
-//		accountPage.nameField.sendKeys("Category ABC");
-//		accountPage.save.click();
-//		accountPage.searchBox.sendKeys(Keys.ENTER);
+		accountPage.createNewCategory.click();
+		assertTrue(accountPage.categoryInfo.isDisplayed());
+		assertTrue(accountPage.deleteButton.isDisplayed());
+		assertTrue(accountPage.cancelButton.isDisplayed());
+		assertTrue(accountPage.saveButton1.isDisplayed());
+		accountPage.nameField.clear();
+		accountPage.nameField.click();
+		accountPage.nameField.sendKeys("Music");
+		accountPage.saveButton1.click();
+		accountPage.close.click();
+		BrowserUtils.waitFor(3);
+		accountPage.nextKey.click();
+		assertTrue(accountPage.newCategoryName.isDisplayed());
 
-	
-	
 	}
 	
+	@Test(priority = 18) //Afsheen
+	public void TC_18() throws InterruptedException {
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage profilePage = new MyProfilePage();
+		homePage.automaticLogin();
+		homePage.isAt();
+		accountPage.selectFirstTab("Account");
+		accountPage.selectSubTab("Custom Fields");
+		accountPage.createCustomFieldButton.click();
+		assertTrue(accountPage.editCustom.isDisplayed());
+		assertTrue(accountPage.deleteButton.isDisplayed());
+		assertTrue(accountPage.cancelButton.isDisplayed());
+		assertTrue(accountPage.saveButton1.isDisplayed());
+		Select transactionList = new Select(accountPage.transactionDropDown);
+		transactionList.selectByValue("Adjustment");
+		Select fieldList = new Select(accountPage.fieldDropDown);
+		accountPage.customFieldName.click();
+		BrowserUtils.waitFor(3);
+		accountPage.customFieldName.sendKeys("Tech Ninjas");
+		accountPage.saveButton1.click();
+		accountPage.close.click();
+		assertTrue(accountPage.adjustmentName.isDisplayed());
 	
+	}
 
 
-//	@Test(priority = 19)
+	@Test(priority = 19)
 	public void TC_19() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -367,7 +394,7 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	//@Test(priority = 20)
+	@Test(priority = 20)
 	public void TC_20() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();

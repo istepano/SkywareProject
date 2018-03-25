@@ -72,5 +72,5 @@ public class MyProfilePage {
 	
 	@FindBy(xpath="//span[@class='placeholder']")
 	public List<WebElement> contactInfo;
-
+	
 }

@@ -54,7 +54,25 @@ public class AccountPage {
 	
 	@FindBy(id="name")
 	public WebElement nameField;
+
+	@FindBy(xpath="//select[@id='className']")
+	public WebElement fieldDropDown;
 	
+	@FindBy(xpath="//form[@id='editCategory']")
+	public WebElement categoryInfo;
+	
+	@FindBy(xpath="//a[@class='next']")
+	public WebElement nextKey;
+	
+	@FindBy(xpath="//div[@class='close']")
+	public WebElement close;
+
+	@FindBy(xpath="(//a[@class='editCategoryLink triggerLoader'])[5]")
+	public WebElement newCategoryName;
+	
+	@FindBy(xpath="//form[@id='editCustomField']")
+	public WebElement editCustom;
+
 	@FindBy(id="saveButton")
 	public WebElement save;
 	
@@ -82,7 +100,7 @@ public class AccountPage {
 	@FindBy(id="transactionType")
 	public WebElement transactionDropDown;
 	
-	@FindBy(id="name")
+	@FindBy(xpath="//input[@id='name']")
 	public WebElement customFieldName;
 	
 	@FindBy(id="saveButton")
