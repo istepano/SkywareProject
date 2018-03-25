@@ -293,7 +293,7 @@ public class SkywareTests extends TestBaseClass {
 		
 		
 	}
-	@Test(priority=14)
+	//@Test(priority=14)
 	public void TC_14() throws InterruptedException{
 		
 		
