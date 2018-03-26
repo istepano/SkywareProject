@@ -282,7 +282,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(myProfilePage.getState(),"VA");
 	}
 	
-	//@Test(priority=14)
+	@Test(priority=14)
 	public void TC_14() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
