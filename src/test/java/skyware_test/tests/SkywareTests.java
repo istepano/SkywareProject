@@ -95,7 +95,7 @@ public class SkywareTests extends TestBaseClass {
 		// Step 5 Why do we need save any Name under Tickets category ?
 	}
 
-@Test(priority = 3)
+	@Test(priority = 3)
 	public void TC_03() {
 		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
@@ -103,7 +103,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-@Test(priority = 4)
+	@Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -166,10 +166,8 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.searchItem.isDisplayed());
 
 	}
-	
 
-
-@Test(priority = 8)
+	@Test(priority = 8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -181,9 +179,6 @@ public class SkywareTests extends TestBaseClass {
 		BrowserUtils.waitFor(3);
 
 	}
-
-	
-
 
 	@Test(priority = 9) // Andy
 	public void TC_09() {
@@ -208,7 +203,7 @@ public class SkywareTests extends TestBaseClass {
 		
 	}
 
-@Test(priority = 10) // Andy
+	@Test(priority = 10) // Andy
 	public void TC_10() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -264,10 +259,9 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.transferTest.isDisplayed());
 
 	}
+
 	@Test(priority=13)
 	public void TC_13() throws InterruptedException{
-		
-		
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -286,13 +280,10 @@ public class SkywareTests extends TestBaseClass {
 		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdown));
 		myProfilePage.changeCountry(6);
 		assertEquals(myProfilePage.getState(),"VA");
-		
-		
 	}
+
 	//@Test(priority=14)
 	public void TC_14() throws InterruptedException{
-		
-		
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -312,8 +303,47 @@ public class SkywareTests extends TestBaseClass {
 		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdownStates));
 	
 	}
-
 	
+
+	@Test (priority=15)
+	public void TC_15() {
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage profilePage = new MyProfilePage();
+		homePage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
+		BrowserUtils.scrollDown();
+		profilePage.editButton.click();
+		profilePage.accountName.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox1.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox1.getText(), "This field is required.");
+		
+		profilePage.accountName.sendKeys("ACB company");
+		profilePage.profileCity.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox2.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox2.getText(), "This field is required.");
+		
+		profilePage.profileCity.sendKeys("Chicago");
+		profilePage.changeCountry(113);
+		profilePage.state.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox3.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox3.getText(), "This field is required.");
+		
+		profilePage.state.sendKeys("IL");
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.savedMessageBox.isDisplayed());
+		System.out.println(profilePage.savedMessageBox.getText());
+		assertTrue(profilePage.savedMessageBox.getText().contains("Saved!"));
+	}
+
+
 	@Test(priority = 16) //Afsheen
 	public void TC_16() throws InterruptedException {
 		HomePage homePage = new HomePage();
@@ -357,7 +387,6 @@ public class SkywareTests extends TestBaseClass {
 //		BrowserUtils.waitForPageToLoad(2);
 //		assertEquals("You have successfully logged out.", accountPage.logoutMessage.getText());
 //		BrowserUtils.waitForPageToLoad(4);
-	
 
 	
 	@Test(priority = 17) //Afsheen
@@ -386,9 +415,6 @@ public class SkywareTests extends TestBaseClass {
 	
 	
 	}
-	
-	
-
 
 	@Test(priority = 19)
 	public void TC_19() throws InterruptedException {
