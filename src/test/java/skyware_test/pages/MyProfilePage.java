@@ -95,8 +95,6 @@ public class MyProfilePage {
 	@FindBy(xpath="//span[@class='placeholder']")
 	public List<WebElement> contactInfo;
 	
-<<<<<<< HEAD
-=======
 	@FindBy(id="ui-tooltip-0-content")
 	public WebElement fieldRequiredBox1;
 	
@@ -109,5 +107,4 @@ public class MyProfilePage {
 	@FindBy(xpath="//div[starts-with(@class, 'ui-tooltip qtip ui-helper-reset ui-tooltip-default ui-tooltip-green ui-tooltip-pos-bc ui-tooltip-focus')]")
 	public WebElement savedMessageBox;
 
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 }
