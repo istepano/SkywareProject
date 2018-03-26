@@ -1,7 +1,5 @@
 package skyware_test.pages;
 
-import javax.management.DescriptorKey;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

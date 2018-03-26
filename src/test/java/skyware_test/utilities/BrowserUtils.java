@@ -22,8 +22,22 @@ import skyware_test.pages.HomePage;
 
 public class BrowserUtils {
 
-//	private static WebDriver driver =Driver.getDriver();
-	
+	// private static WebDriver driver =Driver.getDriver();
+
+	public static List<String> getElementsFromDropdown(List<WebElement> dropdown) {
+		List<String> newList = new ArrayList<>();
+
+		for (int i = 1; i < dropdown.size(); i++) {
+			if (dropdown.get(i).getText().equals("Great Britain")) {
+				dropdown.remove(i);
+			} else {
+				newList.add(dropdown.get(i).getText());
+				
+			}
+		}
+		return newList;
+	}
+
 	public static List<String> getElementsText(By locator) {
 		List<WebElement> elems = Driver.getDriver().findElements(locator);
 		List<String> elemTexts = new ArrayList<String>();
@@ -56,8 +70,9 @@ public class BrowserUtils {
 	}
 
 	public static WebElement fluentWait(final WebElement webElement, int timeinsec) {
-		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver()).withTimeout(timeinsec, TimeUnit.SECONDS)
-				.pollingEvery(timeinsec, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(Driver.getDriver())
+				.withTimeout(timeinsec, TimeUnit.SECONDS).pollingEvery(timeinsec, TimeUnit.SECONDS)
+				.ignoring(NoSuchElementException.class);
 		WebElement element = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return webElement;
@@ -100,49 +115,47 @@ public class BrowserUtils {
 		}
 		Driver.getDriver().switchTo().window(origin);
 	}
-	
+
 	public static boolean isClickable(WebElement el, WebDriver driver) {
-        try{
-            WebDriverWait wait = new WebDriverWait(driver, 6);
-            wait.until(ExpectedConditions.elementToBeClickable(el));
-            return true;
-        }
-        catch (Exception e){
-            return false;
-        }
-    }
-	
-	public static void scrollDown() {
-		JavascriptExecutor jse = (JavascriptExecutor)Driver.getDriver();
-		jse.executeScript("window.scrollBy(0,550)", "");
-	}
-	
-	public static void scrollUp() {
-		JavascriptExecutor jse = (JavascriptExecutor)Driver.getDriver();
-		jse.executeScript("window.scrollBy(250,0)", "");
-	}
-	
-	public static void removeCategoryABC() {
-		AccountPage accountPage = new AccountPage();
-		accountPage.searchBox.sendKeys("Category ABC"+Keys.ENTER);
-		waitFor(5);
-		if(accountPage.searchItem.getText().contains("Category ABC")) {
-			accountPage.searchItem.click();
-			scrollDown();
-			accountPage.deleteButton.click();
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, 6);
+			wait.until(ExpectedConditions.elementToBeClickable(el));
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
-	
-	public static void removeVendorABC() {
+
+	public static void scrollDown() {
+		JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+		jse.executeScript("window.scrollBy(0,550)", "");
+	}
+
+	public static void scrollUp() {
+		JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
+		jse.executeScript("window.scrollBy(250,0)", "");
+	}
+
+	public static void removeCategoryABC() {
 		AccountPage accountPage = new AccountPage();
-		accountPage.searchBox.sendKeys("Vendor ABC"+Keys.ENTER);
-		waitFor(3);
-		if(accountPage.searchItem.getText().contains("Vendor ABC")) {
+		accountPage.searchBox.sendKeys("Category ABC" + Keys.ENTER);
+		waitFor(5);
+		if (accountPage.searchItem.getText().contains("Category ABC")) {
 			accountPage.searchItem.click();
 			scrollDown();
 			accountPage.deleteButton.click();
 		}
 	}
 
+	public static void removeVendorABC() {
+		AccountPage accountPage = new AccountPage();
+		accountPage.searchBox.sendKeys("Vendor ABC" + Keys.ENTER);
+		waitFor(3);
+		if (accountPage.searchItem.getText().contains("Vendor ABC")) {
+			accountPage.searchItem.click();
+			scrollDown();
+			accountPage.deleteButton.click();
+		}
+	}
 
 }
