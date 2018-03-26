@@ -1,6 +1,7 @@
 package skyware_test.utilities;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
@@ -36,6 +37,20 @@ public class BrowserUtils {
 			}
 		}
 		return newList;
+	}
+	
+	public static boolean checkIfAlphabeticalOrder(List<WebElement> alloptions) {
+		List<String> listValues = new ArrayList<>();
+		for(int i=1;i<alloptions.size();i++) {
+			listValues.add(alloptions.get(i).getText());
+		}
+		ArrayList<String> sortedList= new ArrayList<>();
+		sortedList.addAll(listValues);
+		Collections.sort(sortedList);
+		if(listValues.equals(sortedList)) {
+			return true;
+		}
+		return false;
 	}
 
 	public static List<String> getElementsText(By locator) {
