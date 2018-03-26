@@ -281,7 +281,8 @@ public class SkywareTests extends TestBaseClass {
 		myProfilePage.changeCountry(6);
 		assertEquals(myProfilePage.getState(),"VA");
 	}
-	
+
+
 	@Test(priority=14)
 	public void TC_14() throws InterruptedException{
 		HomePage homepage = new HomePage();
