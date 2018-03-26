@@ -28,7 +28,7 @@ import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass {
 
-	@Test(priority = 0, groups = "Smoke test")
+	@Ignore @Test(priority = 0, groups = "Smoke test")
 	public void smokeTest() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -106,7 +106,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-	@Test(priority = 4)
+	@Ignore @Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -121,7 +121,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 5)
+	@Ignore @Test(priority = 5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -137,7 +137,7 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	@Test(priority = 6)
+	@Ignore @Test(priority = 6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -154,7 +154,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 7)
+	@Ignore @Test(priority = 7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -173,7 +173,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 8)
+	@Ignore @Test(priority = 8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -188,7 +188,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 9) // Andy
+	@Ignore @Test(priority = 9) // Andy
 	public void TC_09() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -212,7 +212,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 10) // Andy
+	@Ignore @Test(priority = 10) // Andy
 	public void TC_10() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -232,7 +232,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 11) // Andy
+	@Ignore @Test(priority = 11) // Andy
 	public void TC_11() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -251,7 +251,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 12) // Andy
+	@Ignore @Test(priority = 12) // Andy
 	public void TC_12() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -271,7 +271,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority=13)
+	@Ignore @Test(priority=13)
 	public void TC_13() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
@@ -294,7 +294,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority=14)
+	@Ignore @Test(priority=14)
 	public void TC_14() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
@@ -317,7 +317,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 	
 
-	@Test (priority=15)
+	@Ignore @Test (priority=15)
 	public void TC_15() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -356,7 +356,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 16) //Afsheen
+	@Ignore @Test(priority = 16) //Afsheen
 	public void TC_16() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -406,7 +406,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 17) //Afsheen
+	@Ignore @Test(priority = 17) //Afsheen
 	public void TC_17() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -432,7 +432,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	
-	@Test(priority = 18) //Afsheen
+	@Ignore @Test(priority = 18) //Afsheen
 	public void TC_18() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
