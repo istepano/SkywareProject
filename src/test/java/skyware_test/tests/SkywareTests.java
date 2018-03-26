@@ -4,6 +4,9 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -12,6 +15,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import skyware_test.pages.AccountPage;
@@ -44,6 +48,8 @@ public class SkywareTests extends TestBaseClass {
 
 		assertTrue(accountPage.searchItem.isDisplayed());
 
+		BrowserUtils.waitFor(3);
+		BrowserUtils.scrollUp();
 		accountPage.selectFirstTab("My Profile");
 		BrowserUtils.scrollDown();
 		profilePage.editButton.click();
@@ -100,7 +106,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-	@Test(priority = 4)
+	@Ignore @Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -114,7 +120,9 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");
 	}
 
-	@Test(priority = 5)
+
+	@Ignore @Test(priority = 5)
+
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -130,7 +138,8 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	@Test(priority = 6)
+	@Ignore @Test(priority = 6)
+
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -146,7 +155,8 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 
-	@Test(priority = 7)
+
+	@Ignore @Test(priority = 7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -163,15 +173,16 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.searchItem.isDisplayed());
 
 	}
-	
 
 
-	@Test(priority = 8)
+	@Ignore @Test(priority = 8)
+
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		homePage.automaticLogin();
 		homePage.isAt();
+		BrowserUtils.waitFor(3);
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Tax Authorities");
 		assertTrue(accountPage.searchItem.isDisplayed());
@@ -179,10 +190,9 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	
 
+	@Ignore @Test(priority = 9) // Andy
 
-	@Test(priority = 9) // Andy
 	public void TC_09() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -205,7 +215,8 @@ public class SkywareTests extends TestBaseClass {
 		
 	}
 
-	@Test(priority = 10) // Andy
+
+	@Ignore @Test(priority = 10) // Andy
 	public void TC_10() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -224,7 +235,9 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 11) // Andy
+
+	@Ignore @Test(priority = 11) // Andy
+
 	public void TC_11() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -242,7 +255,8 @@ public class SkywareTests extends TestBaseClass {
 		accountPage.tryCatch(accountPage.mDLink);
 	}
 
-	@Test(priority = 12) // Andy
+
+	@Ignore @Test(priority = 12) // Andy
 	public void TC_12() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -262,8 +276,92 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
+	@Ignore @Test(priority=13)
+	public void TC_13() throws InterruptedException{
+		HomePage homepage = new HomePage();
+		BrowserUtils browserUtils = new BrowserUtils();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage myProfilePage = new MyProfilePage();
+		browserUtils.waitFor(4);
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
+		
+		assertEquals(driver.getTitle(),"Skyware Inventory | My Profile");
+		BrowserUtils.scrollDown();
+		myProfilePage.editButton.click();
+		browserUtils.waitFor(2);
+		
+		List<WebElement> dropdown= myProfilePage.countrySelectList;
+		
+		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdown));
+		myProfilePage.changeCountry(6);
+		assertEquals(myProfilePage.getState(),"VA");
+	}
+
+
+	@Ignore @Test(priority=14)
+	public void TC_14() throws InterruptedException{
+		HomePage homepage = new HomePage();
+		BrowserUtils browserUtils = new BrowserUtils();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage myProfilePage = new MyProfilePage();
+		homepage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
 	
-	@Test(priority = 16) //Afsheen
+		assertEquals(driver.getTitle(),"Skyware Inventory | My Profile");
+		browserUtils.waitFor(2);
+		BrowserUtils.scrollDown();
+		myProfilePage.editButton.click();
+		Select select = new Select(myProfilePage.country);
+		select.selectByValue("United States");
+		browserUtils.waitFor(2);
+		myProfilePage.state.isDisplayed();
+		List<WebElement> dropdownStates = myProfilePage.stateSelectList;
+		assertFalse(browserUtils.checkIfAlphabeticalOrder(dropdownStates));
+	
+	}
+	
+
+	@Ignore @Test (priority=15)
+	public void TC_15() {
+		HomePage homePage = new HomePage();
+		AccountPage accountPage = new AccountPage();
+		MyProfilePage profilePage = new MyProfilePage();
+		homePage.automaticLogin();
+		accountPage.selectFirstTab("My Profile");
+		BrowserUtils.scrollDown();
+		profilePage.editButton.click();
+		profilePage.accountName.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox1.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox1.getText(), "This field is required.");
+		
+		profilePage.accountName.sendKeys("ACB company");
+		profilePage.profileCity.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox2.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox2.getText(), "This field is required.");
+		
+		profilePage.profileCity.sendKeys("Chicago");
+		profilePage.changeCountry(113);
+		profilePage.state.clear();
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.fieldRequiredBox3.isDisplayed());
+		assertEquals(profilePage.fieldRequiredBox3.getText(), "This field is required.");
+		
+		profilePage.state.sendKeys("IL");
+		profilePage.saveButton.click();
+		
+		assertTrue(profilePage.savedMessageBox.isDisplayed());
+		System.out.println(profilePage.savedMessageBox.getText());
+		assertTrue(profilePage.savedMessageBox.getText().contains("Saved!"));
+	}
+
+
+	@Ignore @Test(priority = 16) //Afsheen
 	public void TC_16() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -313,8 +411,8 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	
-	@Test(priority = 17) //Afsheen
+	@Ignore @Test(priority = 17) //Afsheen
+
 	public void TC_17() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -338,6 +436,7 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.newCategoryName.isDisplayed());
 
 	}
+
 	
 	@Test(priority = 18) //Afsheen
 	public void TC_18() throws InterruptedException {
@@ -364,7 +463,6 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	
 	}
-
 
 	@Test(priority = 19)
 	public void TC_19() throws InterruptedException {

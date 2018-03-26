@@ -35,6 +35,9 @@ public class MyProfilePage {
 	@FindBy(xpath="//input[@id='profile_lastName']")
 	public WebElement lastName;
 	
+	@FindBy(xpath="//select[@id='countrySelect']/option")
+	public List<WebElement> countrySelectList;
+	
 	@FindBy(xpath="//select[@id='countrySelect']")
 	public WebElement countrySelect;
 	
@@ -43,14 +46,33 @@ public class MyProfilePage {
     	select.selectByVisibleText(options);
 	}
 	
+	@FindBy(id="countrySelect")
+	public WebElement country;
+	
+	@FindBy(id="stateSelect")
+	public WebElement state;
+	
+	public String getState() {
+		return state.getAttribute("value");
+	}
+	
+	public void changeCountry(int i) {
+		Select select = new Select(country);
+		select.selectByIndex(i);
+	}
+	
 	@FindBy(xpath="//input[@id='profile_address1']")
 	public WebElement profileAddress;
 	
 	@FindBy(xpath="//input[@id='profile_city']")
 	public WebElement profileCity;
 	
-	@FindBy(xpath="//input[@id='stateSelect']")
+	@FindBy(id="stateSelect")
 	public WebElement stateSelect;
+	//select[@id='stateSelect']/option
+	
+	@FindBy(xpath="//select[@id='stateSelect']/option")
+	public List<WebElement> stateSelectList;
 	
 	@FindBy(xpath="//input[@id='profile_zip']")
 	public WebElement profileZip;
@@ -73,4 +95,19 @@ public class MyProfilePage {
 	@FindBy(xpath="//span[@class='placeholder']")
 	public List<WebElement> contactInfo;
 	
+<<<<<<< HEAD
+=======
+	@FindBy(id="ui-tooltip-0-content")
+	public WebElement fieldRequiredBox1;
+	
+	@FindBy(id="ui-tooltip-1-content")
+	public WebElement fieldRequiredBox2;
+	
+	@FindBy(id="ui-tooltip-2-content")
+	public WebElement fieldRequiredBox3;
+	
+	@FindBy(xpath="//div[starts-with(@class, 'ui-tooltip qtip ui-helper-reset ui-tooltip-default ui-tooltip-green ui-tooltip-pos-bc ui-tooltip-focus')]")
+	public WebElement savedMessageBox;
+
+>>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 }
