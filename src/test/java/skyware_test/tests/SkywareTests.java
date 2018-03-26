@@ -15,6 +15,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import skyware_test.pages.AccountPage;
@@ -27,7 +28,7 @@ import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass {
 
-	@Test(priority = 0, groups = "Smoke test")
+	@Ignore @Test(priority = 0, groups = "Smoke test")
 	public void smokeTest() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -47,6 +48,8 @@ public class SkywareTests extends TestBaseClass {
 
 		assertTrue(accountPage.searchItem.isDisplayed());
 
+		BrowserUtils.waitFor(3);
+		BrowserUtils.scrollUp();
 		accountPage.selectFirstTab("My Profile");
 		BrowserUtils.scrollDown();
 		profilePage.editButton.click();
@@ -103,7 +106,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-	@Test(priority = 4)
+	@Ignore @Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -117,7 +120,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(loginPage.incorrectUsernameMessage.getText(), "Incorrect Username or password. Please try again.");
 	}
 
-	@Test(priority = 5)
+	@Ignore @Test(priority = 5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -133,7 +136,7 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	@Test(priority = 6)
+	@Ignore @Test(priority = 6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -149,7 +152,7 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.adjustmentName.isDisplayed());
 	}
 
-	@Test(priority = 7)
+	@Ignore @Test(priority = 7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -167,12 +170,13 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 8)
+	@Ignore @Test(priority = 8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		homePage.automaticLogin();
 		homePage.isAt();
+		BrowserUtils.waitFor(3);
 		accountPage.selectFirstTab("Account");
 		accountPage.selectSubTab("Tax Authorities");
 		assertTrue(accountPage.searchItem.isDisplayed());
@@ -180,7 +184,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 9) // Andy
+	@Ignore @Test(priority = 9) // Andy
 	public void TC_09() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -203,7 +207,7 @@ public class SkywareTests extends TestBaseClass {
 		
 	}
 
-	@Test(priority = 10) // Andy
+	@Ignore @Test(priority = 10) // Andy
 	public void TC_10() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -222,7 +226,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 11) // Andy
+	@Ignore @Test(priority = 11) // Andy
 	public void TC_11() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -240,7 +244,7 @@ public class SkywareTests extends TestBaseClass {
 		accountPage.tryCatch(accountPage.mDLink);
 	}
 
-	@Test(priority = 12) // Andy
+	@Ignore @Test(priority = 12) // Andy
 	public void TC_12() throws InterruptedException {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -260,7 +264,7 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority=13)
+	@Ignore @Test(priority=13)
 	public void TC_13() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
@@ -283,7 +287,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority=14)
+	@Ignore @Test(priority=14)
 	public void TC_14() throws InterruptedException{
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
@@ -306,7 +310,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 	
 
-	@Test (priority=15)
+	@Ignore @Test (priority=15)
 	public void TC_15() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -345,7 +349,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 16) //Afsheen
+	@Ignore @Test(priority = 16) //Afsheen
 	public void TC_16() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -390,7 +394,7 @@ public class SkywareTests extends TestBaseClass {
 //		BrowserUtils.waitForPageToLoad(4);
 
 	
-	@Test(priority = 17) //Afsheen
+	@Ignore @Test(priority = 17) //Afsheen
 	public void TC_17() throws InterruptedException {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
