@@ -25,13 +25,8 @@ import skyware_test.utilities.TestBaseClass;
 
 public class SkywareTests extends TestBaseClass {
 
-<<<<<<< HEAD
 	@Test(priority = 0, groups = "Smoke test")
 	public void smokeTest() {
-=======
-	@Ignore @Test(priority = 0, groups = "Smoke test")
-	public void smokeTest() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -107,7 +102,7 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(driver.getCurrentUrl(), "https://www.skywareinventory.com/secure/dashboard");
 	}
 
-	@Ignore @Test(priority = 4)
+	@Test(priority = 4)
 	public void TC_04() {
 		LoginPage loginPage = new LoginPage();
 		HomePage homePage = new HomePage();
@@ -122,7 +117,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Ignore @Test(priority = 5)
+	@Test(priority = 5)
 	public void TC_05() {
 		AccountPage accountPage = new AccountPage();
 		LoginPage loginPage = new LoginPage();
@@ -138,7 +133,7 @@ public class SkywareTests extends TestBaseClass {
 		}
 	}
 
-	@Ignore @Test(priority = 6)
+	@Test(priority = 6)
 	public void TC_06() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -155,7 +150,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Ignore @Test(priority = 7)
+	@Test(priority = 7)
 	public void TC_07() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -174,7 +169,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Ignore @Test(priority = 8)
+	@Test(priority = 8)
 	public void TC_08() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -189,7 +184,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Ignore @Test(priority = 9) // Andy
+	@Test(priority = 9) // Andy
 	public void TC_09() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -213,13 +208,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-<<<<<<< HEAD
 	@Test(priority = 10)
 	public void TC_10(){
-=======
-	@Ignore @Test(priority = 10) // Andy
-	public void TC_10() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils.waitFor(2);
@@ -238,7 +228,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Ignore @Test(priority = 11) // Andy
+	@Test(priority = 11) // Andy
 	public void TC_11() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
@@ -257,13 +247,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-<<<<<<< HEAD
 	@Test(priority = 12)
 	public void TC_12(){
-=======
-	@Ignore @Test(priority = 12) // Andy
-	public void TC_12() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils.waitFor(2);
@@ -282,13 +267,8 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-<<<<<<< HEAD
 	@Test(priority=13)
 	public void TC_13(){
-=======
-	@Ignore @Test(priority=13)
-	public void TC_13() throws InterruptedException{
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -310,13 +290,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-<<<<<<< HEAD
 	@Test(priority=14)
 	public void TC_14(){
-=======
-	@Ignore @Test(priority=14)
-	public void TC_14() throws InterruptedException{
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -338,13 +313,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 	
 
-<<<<<<< HEAD
 	@Test (priority=15)
 	public void TC_15(){
-=======
-	@Ignore @Test (priority=15)
-	public void TC_15() {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -381,13 +351,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-<<<<<<< HEAD
 	@Test(priority = 16)
 	public void TC_16(){
-=======
-	@Ignore @Test(priority = 16) //Afsheen
-	public void TC_16() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -436,13 +401,8 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-<<<<<<< HEAD
 	@Test(priority = 17)
 	public void TC_17(){
-=======
-	@Ignore @Test(priority = 17) //Afsheen
-	public void TC_17() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -467,13 +427,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	
-<<<<<<< HEAD
 	@Test(priority = 18)
 	public void TC_18(){
-=======
-	@Ignore @Test(priority = 18) //Afsheen
-	public void TC_18() throws InterruptedException {
->>>>>>> branch 'master' of https://github.com/istepano/SkywareProject.git
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
