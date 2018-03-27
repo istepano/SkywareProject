@@ -1,12 +1,10 @@
 package skyware_test.tests;
 
+
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -15,7 +13,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import skyware_test.pages.AccountPage;
@@ -29,7 +26,7 @@ import skyware_test.utilities.TestBaseClass;
 public class SkywareTests extends TestBaseClass {
 
 	@Test(priority = 0, groups = "Smoke test")
-	public void smokeTest() throws InterruptedException {
+	public void smokeTest() {
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -68,7 +65,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	@Test(priority = 1)
-	public void TC_01() {// Ilya Stepanov - 3 steps are missed
+	public void TC_01() {
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		HomePage homePage = new HomePage();
@@ -86,7 +83,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	@Test(priority = 2)
-	public void TC_02() {// by Ilya Stepanov // 2 steps are missed
+	public void TC_02() {
 		AccountPage accountPage = new AccountPage();
 		HomePage homePage = new HomePage();
 		homePage.automaticLogin();
@@ -95,7 +92,6 @@ public class SkywareTests extends TestBaseClass {
 		assertEquals(accountPage.pendingInventation.getText(), "- No Pending Users -");
 		accountPage.selectSubTab("Custom Fields");
 		accountPage.ticketTitleRow.isDisplayed();
-		// Step 5 Why do we need save any Name under Tickets category ?
 	}
 
 	@Test(priority = 3)
@@ -212,8 +208,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 10) // Andy
-	public void TC_10() throws InterruptedException {
+	@Test(priority = 10)
+	public void TC_10(){
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils.waitFor(2);
@@ -251,8 +247,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 
-	@Test(priority = 12) // Andy
-	public void TC_12() throws InterruptedException {
+	@Test(priority = 12)
+	public void TC_12(){
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		BrowserUtils.waitFor(2);
@@ -272,7 +268,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	@Test(priority=13)
-	public void TC_13() throws InterruptedException{
+	public void TC_13(){
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -295,7 +291,7 @@ public class SkywareTests extends TestBaseClass {
 
 
 	@Test(priority=14)
-	public void TC_14() throws InterruptedException{
+	public void TC_14(){
 		HomePage homepage = new HomePage();
 		BrowserUtils browserUtils = new BrowserUtils();
 		AccountPage accountPage = new AccountPage();
@@ -318,7 +314,7 @@ public class SkywareTests extends TestBaseClass {
 	
 
 	@Test (priority=15)
-	public void TC_15() {
+	public void TC_15(){
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -351,13 +347,12 @@ public class SkywareTests extends TestBaseClass {
 		profilePage.saveButton.click();
 		
 		assertTrue(profilePage.savedMessageBox.isDisplayed());
-		System.out.println(profilePage.savedMessageBox.getText());
 		assertTrue(profilePage.savedMessageBox.getText().contains("Saved!"));
 	}
 
 
-	@Test(priority = 16) //Afsheen
-	public void TC_16() throws InterruptedException {
+	@Test(priority = 16)
+	public void TC_16(){
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -372,7 +367,7 @@ public class SkywareTests extends TestBaseClass {
 		for(WebElement i : contactinfo) {
 			contactInfoString+=i.getText()+" ";
 		}
-		System.out.println(contactInfoString);
+
 		
 		profilePage.editButtonProfile.click();
 		profilePage.accountName.clear();
@@ -398,7 +393,7 @@ public class SkywareTests extends TestBaseClass {
 		for(WebElement i : contactinfoafter) {
 			contactInfoStringAfter+=i.getText()+" ";
 		}
-		System.out.println(contactInfoStringAfter);
+
 			assertEquals(contactinfoafter.size(), contactinfo.size(), "Number of expected result options did not match");
 		for (int i = 0; i < contactinfo.size(); i++) {
 			assertEquals(contactinfoafter.get(i), contactinfo.get(i));
@@ -406,8 +401,8 @@ public class SkywareTests extends TestBaseClass {
 
 	}
 
-	@Test(priority = 17) //Afsheen
-	public void TC_17() throws InterruptedException {
+	@Test(priority = 17)
+	public void TC_17(){
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -432,8 +427,8 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	
-	@Test(priority = 18) //Afsheen
-	public void TC_18() throws InterruptedException {
+	@Test(priority = 18)
+	public void TC_18(){
 		HomePage homePage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		MyProfilePage profilePage = new MyProfilePage();
@@ -459,7 +454,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	@Test(priority = 19)
-	public void TC_19() throws InterruptedException {
+	public void TC_19() {
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -473,7 +468,6 @@ public class SkywareTests extends TestBaseClass {
 		assertTrue(accountPage.deleteButton.isDisplayed());
 		assertTrue(accountPage.cancelButton.isDisplayed());
 		assertTrue(accountPage.saveButton1.isDisplayed());
-		// accountPage.customFieldName.sendKeys("Cybert");
 
 		WebElement inputBox = driver.findElement(By.xpath("//input[@id='name']"));
 		inputBox.click();
@@ -487,7 +481,7 @@ public class SkywareTests extends TestBaseClass {
 	}
 
 	@Test(priority = 20)
-	public void TC_20() throws InterruptedException {
+	public void TC_20(){
 		HomePage homepage = new HomePage();
 		AccountPage accountPage = new AccountPage();
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
@@ -523,14 +517,12 @@ public class SkywareTests extends TestBaseClass {
 		int beforeOf = 0;
 		BrowserUtils.waitFor(3);
 
-		System.out.println("totalNumberOnNavigation : " + totalNumberOnNavigation);
 
 		do {
 			fullRecordsText = driver.findElement(By.xpath("//li[@id='recordNo']")).getText();
 			recordsArr = fullRecordsText.split(" ");
 
 			beforeOf = Integer.parseInt(recordsArr[3]);
-			System.out.println("Before of: " + beforeOf);
 			List<WebElement> vendorRecords = driver.findElements(By.xpath(("//tr[@id='templateRow']")));
 			totalNumberFromPages += vendorRecords.size();
 
@@ -538,11 +530,8 @@ public class SkywareTests extends TestBaseClass {
 
 		} while (beforeOf != totalNumberOnNavigation);
 
-		System.out.println(totalNumberFromPages + "-" + totalNumberOnNavigation);
 		assertEquals(totalNumberFromPages, totalNumberOnNavigation);
 		BrowserUtils.waitFor(3);
-
-		System.out.println("Compare here");
 		accountPage.selectFirstTab("Vendors");
 		BrowserUtils.waitFor(3);
 		accountPage.createVendorButton.click();
@@ -555,23 +544,18 @@ public class SkywareTests extends TestBaseClass {
 		totalNumberFromPages = 0;
 		beforeOf = 0;
 
-		System.out.println("totalNumberOnNavigation : " + totalNumberOnNavigation);
 
 		do {
 			fullRecordsText = driver.findElement(By.xpath("//li[@id='recordNo']")).getText();
 			recordsArr = fullRecordsText.split(" ");
 
 			beforeOf = Integer.parseInt(recordsArr2[3]);
-			System.out.println("Before of: " + beforeOf);
 			List<WebElement> vendorRecords = driver.findElements(By.xpath(("//tr[@id='templateRow']")));
 			BrowserUtils.waitFor(3);
 			totalNumberFromPages += vendorRecords.size();
 
-			// accountPage.nextPage.click();
-
 		} while (beforeOf != totalNumberOnNavigation);
 
-		System.out.println(totalNumberFromPages + "-" + totalNumberOnNavigation);
 		assertEquals(totalNumberFromPages, totalNumberOnNavigation);
 	}
 
